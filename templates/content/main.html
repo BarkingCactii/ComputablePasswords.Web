@@ -1,14 +1,17 @@
 {{define "content"}}
-<div class="login_formouter">
+<div class="borderouter">
         <div>
-        <h2 align="center">{{.Title}}</h2>
-        <div align="center">Demonstrating how to create a unique password based on the websites url</div>
-        <br>
-
+            <h2 align="center">{{.Title}}</h2>
+            <div align="center">
+                    This program generates a reproducible password based on the corresponding url<br>
+                    This means you will not be required to store any passwords
+            </div>
+            <br>
         </div>
-        <form class="login_form" action="/generate/{{.WebURL}}" method="POST">
+        <form class="borderinner" action="/generate/{{.WebURL}}" method="POST">
             <div class="margino">
-                <br>Enter Website Url:<br>
+                <br>Enter Website Url:
+                <br>
                 <input type="text" name="url" size="50" value = {{.WebURL}}>
                 <br>
             </div>

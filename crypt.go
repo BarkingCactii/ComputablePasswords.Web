@@ -44,7 +44,6 @@ user2	password123+44534C70C6883DE2	D63E21DF3A2A6853C2DC675EDDD4259F3B78490A4988B
 */
 
 func calc(input string) string {
-	fmt.Printf("Input = [%s]\n", input)
 	// check whether we want sha1 or sha256
 	// The deciding factor is the existance of the file sha1 or sha256
 	hash := CheckCryptoType()
@@ -57,18 +56,6 @@ func calc(input string) string {
 		panic("public.key missing")
 	}
 
-	// display a brief message
-	//	DisplayBanner()
-
-	// get url
-	// keep asking until we get some text
-	/*
-		var input string
-		for len(input) == 0 {
-			fmt.Print("Enter website: ")
-			fmt.Scanln(&input)
-		}
-	*/
 	// calculate the salt from the url
 	// because we don't need to decrypt and we need a unique salt
 	// for each url, the salt is based on the url
@@ -97,11 +84,6 @@ func CheckCryptoType() hash.Hash {
 	return sha1.New()
 }
 
-func DisplayBanner() {
-	fmt.Println("This program generates a reproducible password based on the corresponding url")
-	fmt.Println("This means you will not be required to store any passwords")
-}
-
 func GetPepper(fileName string) (string, error) {
 	file, err := os.Open(fileName)
 	defer file.Close()
@@ -121,7 +103,7 @@ func GetPepper(fileName string) (string, error) {
 	}
 
 	if err != io.EOF {
-		fmt.Printf(" > 1 line only required: %v\n", err)
+		panic(" > 1 line only required:\n")
 	}
 
 	return line, nil
