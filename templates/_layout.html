@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Heading {{.Title}}</title>
+        <link href="/css/_styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        {{template "_header.html" .}}
+        {{template "content" .}}
+        {{template "_footer.html" .}}
+        {{block "script" .}}{{end}}
+    </body>
+</html>

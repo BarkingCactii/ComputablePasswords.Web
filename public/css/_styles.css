@@ -1,0 +1,44 @@
+
+
+        html {
+            height: 100%;
+            min-height: 100%;
+        }
+        
+        .login_div {
+            position: absolute;
+        
+            width: 300px;
+            height: 300px;
+        
+            /* Center form on page horizontally & vertically */
+            top: 50%;
+            left: 50%;
+            margin-top: -150px;
+            margin-left: -150px;
+        }
+        
+        .login_form {
+            width: 500px;
+            height: 120px;
+            margin: 0 auto; 
+            background: #f8f8ff;
+            border-radius: 10px;
+            border: 1px dotted darkblue;
+        }
+
+        .login_formouter {
+            width: 700px;
+            height: 200px;
+            margin: 0 auto; 
+            background: #f0f0ff;
+            border-radius: 10px;
+            border: 1px dotted darkblue;
+        }
+        
+        .margino {
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+       

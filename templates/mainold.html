@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    
+{{template "_head.html"}}
+
+<body>
+    {{template "_styles.html" .}}
+
+    <div class="login_div">
+
+    <h2>Computable Passwords</h2>
+        <form class="login_form" action="main" method="POST">
+        <div class="margino">
+            <br>Enter Website Url:<br>
+            <input type="text" name="url" size="50" value = {{.WebURL}}>
+            <br>
+        </div>
+    <div class="margino">
+    <input id="submit" type="submit" value="Generate">
+    </div>
+</form>
+<div class="margino"><b>{{.Result}}</b></div>
+</div>
+</body>
+</html>
