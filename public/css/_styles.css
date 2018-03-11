@@ -3,16 +3,18 @@
       
         .borderinner {
             width: 500px;
-            height: 120px;
+            height: 165px;
             margin: 0 auto; 
             background: #f8f8ff;
             border-radius: 10px;
             border: 1px dotted darkblue;
+            z-index: 2;
+            margin-top: -25px;            
         }
 
         .borderouter {
             width: 700px;
-            height: 200px;
+            height: 150px;
             margin: 0 auto; 
             background: #f0f0ff;
             border-radius: 10px;

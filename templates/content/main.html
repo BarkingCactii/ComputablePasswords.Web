@@ -4,13 +4,16 @@
             <h2 align="center">{{.Title}}</h2>
             <div align="center">
                     This program generates a reproducible password based on the corresponding url<br>
-                    This means you will not be required to store any passwords
-            </div>
-            <br>
+                    This means you will not be required to store any passwords<br>
+                </div>
         </div>
-        <form class="borderinner" action="/generate/{{.WebURL}}" method="POST">
+</div>
+<div class="borderinner">
+    <form action="/generate/{{.WebURL}}" method="POST" align="center">
             <div class="margino">
-                <br>Enter Website Url:
+                Enter public key: <input type="text" name="pepper" size="50" value = {{.PublicKey}}>
+                <br><i>Do no forget your public key</i>
+                <br><br>Enter Website Url:
                 <br>
                 <input type="text" name="url" size="50" value = {{.WebURL}}>
                 <br>
@@ -18,7 +21,8 @@
             <div class="margino">
                 <input id="submit" type="submit" value="Generate">
             </div>
-        </form>
-    <div class="margino" align="center"><b>{{.Result}}</b></div>
+    </form>
+</div>
+<div class="margino" align="center"><b>{{.Result}}</b>
 </div>
 {{end}}

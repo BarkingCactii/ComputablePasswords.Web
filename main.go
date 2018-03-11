@@ -48,8 +48,9 @@ func PopulateTemplates() map[string]*template.Template {
 func saveHandler(w http.ResponseWriter, r *http.Request) { //, title string) {
 
 	context.WebURL = r.FormValue("url")
-	fmt.Printf("InputM = [%s]\n", context.WebURL)
-	context.Result = "Password: " + calc(context.WebURL)
+	context.PublicKey = r.FormValue("pepper")
+	fmt.Printf("InputM = [%s], public key = [%s]\n", context.WebURL, context.PublicKey)
+	context.Result = "Password: " + calc(context.WebURL, context.PublicKey)
 
 	http.Redirect(w, r, "/main", http.StatusFound)
 }

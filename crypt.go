@@ -43,7 +43,7 @@ user1	password123+44534C70C6883DE2	D63E21DF3A2A6853C2DC675EDDD4259F3B78490A4988B
 user2	password123+44534C70C6883DE2	D63E21DF3A2A6853C2DC675EDDD4259F3B78490A4988B49FF3DB7B2891B3B48D
 */
 
-func calc(input string) string {
+func calc(input string, pepper string) string {
 	// check whether we want sha1 or sha256
 	// The deciding factor is the existance of the file sha1 or sha256
 	hash := CheckCryptoType()
@@ -51,10 +51,10 @@ func calc(input string) string {
 	// get pepper from public.key file
 	// only the first line is read
 	// This can contain any text but make it unique
-	pepper, err := GetPepper("public.key")
-	if err != nil {
-		panic("public.key missing")
-	}
+	//pepper, err := GetPepper("public.key")
+	//if err != nil {
+	//		panic("public.key missing")
+	//}
 
 	// calculate the salt from the url
 	// because we don't need to decrypt and we need a unique salt
