@@ -74,6 +74,6 @@ func main() {
 	})
 	http.Handle("/img/", http.FileServer(http.Dir("public")))
 	http.Handle("/css/", http.FileServer(http.Dir("public")))
-	http.HandleFunc("/generate/", saveHandler)
+	http.HandleFunc("/generate", saveHandler)
 	http.ListenAndServe(":8080", nil)
 }
