@@ -10,14 +10,13 @@
         </div>
 </div>
 <div class="borderinner">
-<!--    <form action="/generate/{{.WebURL}}" method="POST">-->
         <form action="/generate" method="POST">
             <div class="margino">
                 Enter public key: <input type="text" name="pepper" size="50" value = {{.PublicKey}}>
                 <br><i>Do not forget your public key</i>
                 <br><br>Enter Website url:
                 <br>
-                <input type="text" name="url" size="50" value = {{.WebURL}}>
+                 <input type="text" name="url" size="50" value = {{.WebURL}}> 
                 <br>
             </div>
             <div class="margino">

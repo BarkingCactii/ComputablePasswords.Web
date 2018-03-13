@@ -46,13 +46,15 @@ func PopulateTemplates() map[string]*template.Template {
 }
 
 func saveHandler(w http.ResponseWriter, r *http.Request) { //, title string) {
-
-	context.WebURL = r.FormValue("url")
-	context.PublicKey = r.FormValue("pepper")
-	fmt.Printf("InputM = [%s], public key = [%s]\n", context.WebURL, context.PublicKey)
-	context.Result = "Password: " + calc(context.WebURL, context.PublicKey)
-
-	http.Redirect(w, r, "/main", http.StatusFound)
+	fmt.Println("method:", r.Method) //get request method
+	if r.Method == "POST" {
+		r.ParseForm()
+		context.WebURL = r.FormValue("url")
+		context.PublicKey = r.FormValue("pepper")
+		fmt.Printf("InputM = [%s], public key = [%s]\n", context.WebURL, context.PublicKey)
+		context.Result = "Password: " + calc(context.WebURL, context.PublicKey)
+		http.Redirect(w, r, "/main", http.StatusFound)
+	}
 }
 
 var context = viewmodel.NewBase()
@@ -64,6 +66,7 @@ func main() {
 		template := templates[requestedFile+".html"]
 
 		if template != nil {
+
 			err := template.Execute(w, context) //context)
 			if err != nil {
 				log.Println(err)
